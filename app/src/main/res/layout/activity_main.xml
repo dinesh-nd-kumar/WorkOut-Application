@@ -12,6 +12,7 @@
         android:id="@+id/myImageView"
         android:layout_width="match_parent"
         android:layout_height="220dp"
+        android:src="@drawable/img_main_page"
         app:layout_constraintBottom_toTopOf="@+id/flStart"
         app:layout_constraintTop_toTopOf="parent" />
 
