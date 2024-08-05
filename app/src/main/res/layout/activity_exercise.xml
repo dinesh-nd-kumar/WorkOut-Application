@@ -70,12 +70,43 @@
                 />
         </LinearLayout>
     </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvUpcomingLable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPCOMING EXERCISE: "
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/flRestView"
+        app:layout_constraintBottom_toTopOf="@id/tvUpcomingName"
+        />
+    <TextView
+        android:id="@+id/tvUpcomingName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="upcomingExerciseName"
+        android:textColor="@color/colorPrimary"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvUpcomingLable"
+        />
+
+
     <ImageView
         android:id="@+id/ivImage"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:scaleType="fitXY"
         android:src="@drawable/ic_jumping_jacks"
+        tools:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@id/tvExerciseName"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
         />
@@ -101,10 +132,10 @@
         android:visibility="gone"
         tools:visibility="visible"
         android:layout_marginTop="10dp"
-        android:background="@drawable/item_color_accent_border_ripple_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/item_color_accent_border_ripple_background"
         app:layout_constraintTop_toBottomOf="@id/tvExerciseName"
         >
         <ProgressBar
@@ -117,7 +148,7 @@
             android:indeterminate="false"
             android:layout_gravity="center"
             android:max="30"
-            android:progress="300"
+            android:progress="25"
             android:rotation="-90"
             />
         <LinearLayout
