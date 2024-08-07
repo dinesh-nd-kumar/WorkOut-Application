@@ -19,7 +19,7 @@ object Constants {
             Exercise(4, "Abdominal Crunch", R.drawable.ic_abdominal_crunch, false, false)
         exerciseList.add(abdominalCrunch)
 
-        val stepUpOnChair =
+       /* val stepUpOnChair =
             Exercise(
                 5,
                 "Step-Up onto Chair",
@@ -68,7 +68,7 @@ object Constants {
         exerciseList.add(pushupAndRotation)
 
         val sidePlank = Exercise(12, "Side Plank", R.drawable.ic_side_plank, false, false)
-        exerciseList.add(sidePlank)
+        exerciseList.add(sidePlank)*/
 
         return exerciseList
     }

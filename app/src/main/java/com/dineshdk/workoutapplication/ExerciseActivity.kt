@@ -1,6 +1,7 @@
 package com.dineshdk.workoutapplication
 
 import android.content.ContentResolver
+import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
@@ -11,6 +12,7 @@ import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dineshdk.workoutapplication.databinding.ActivityExerciseBinding
 import java.lang.Exception
 import java.util.Locale
@@ -31,6 +33,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var mTextToSpeech:TextToSpeech? = null
 
     private var player : MediaPlayer? = null
+
+    private var statusAdapter :ExerciseStatusAdapter? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,6 +64,17 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         mTextToSpeech = TextToSpeech(this,this)
         setUpRestView()
+        setUpStatusView()
+
+    }
+
+    private fun setUpStatusView(){
+        binding.rvExerciseStatus.layoutManager = LinearLayoutManager(
+            this,LinearLayoutManager.HORIZONTAL,false)
+        statusAdapter = ExerciseStatusAdapter(exerciseList!!)
+        binding.rvExerciseStatus.adapter = statusAdapter
+
+
 
     }
     private fun setUpRestView(){
@@ -117,6 +132,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
             override fun onFinish() {
                 currentExercisePosition++
+                exerciseList!![currentExercisePosition].setIsSelected(true)
+                statusAdapter!!.notifyDataSetChanged()
                 setUpExView()
 
             }
@@ -135,14 +152,22 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             }
 
             override fun onFinish() {
+
+                exerciseList!![currentExercisePosition].setIsSelected(false)
+                exerciseList!![currentExercisePosition].setIsCompleted(true)
+                statusAdapter!!.notifyDataSetChanged()
+
                 if(currentExercisePosition < exerciseList!!.size -1){
                     setUpRestView()
                 }else {
-                    Toast.makeText(
+                    /*Toast.makeText(
                         this@ExerciseActivity,
                         "Congrats! you complete exercise",
                         Toast.LENGTH_SHORT
-                    ).show()
+                    ).show()*/
+                    finish()
+                    val intent = Intent(this@ExerciseActivity,FinishActivity::class.java)
+                    startActivity(intent)
                 }
             }
         }.start()
