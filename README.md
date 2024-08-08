@@ -1,2 +1,3 @@
-![workoutapp2](https://github.com/user-attachments/assets/6ed945ed-a150-4604-a338-9467be48b65e)
-![workout application1](https://github.com/user-attachments/assets/91a2a69a-6106-49a6-974c-372221ba7570)
+
+![workout2](https://github.com/user-attachments/assets/65656364-96fc-4098-bf80-896a1955e706)
+![workout1](https://github.com/user-attachments/assets/b14a462d-6c27-45f1-a731-9f50a5e391ba)
